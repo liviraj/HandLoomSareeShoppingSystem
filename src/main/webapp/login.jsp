@@ -33,6 +33,9 @@
                     </div>
                 </div>
             </nav>
+            
+            <center><span style="color: red">${msg}</span></center>
+            
             <!-- Page content-->
             <section class="py-5">
                 <div class="container px-5">
@@ -56,7 +59,7 @@
                                         <label for="email">Password</label>
                                     </div>
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" name="submit" value="Submit"></button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" name="submit" value="Submit">Submit</button></div>
                                 </form>
                             </div>
                         </div>

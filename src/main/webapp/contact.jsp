@@ -14,6 +14,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style type="text/css">
+         /* Custom CSS for positioning the alert */
+        .centered-alert {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Ensure the alert appears on top of other elements */
+        }
+        </style>
+        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            // Add click event listener to the submit button
+            $("#submitButton").click(function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Show a normal alert
+                alert('Thank you for contacting us! Shortly our team will contact you!!!');
+            });
+        });
+        </script>
     </head>
     <body class="d-flex flex-column">
         <main class="flex-shrink-0">
@@ -96,7 +118,7 @@
                                     <!-- an error submitting the form-->
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                     <!-- Submit Button-->
-                                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
                                 </form>
                             </div>
                         </div>

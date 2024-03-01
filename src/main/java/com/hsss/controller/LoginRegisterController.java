@@ -1,7 +1,6 @@
 package com.hsss.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,27 +8,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.hsss.model.LoginModel;
 import com.hsss.service.LoginService;
 
-
 /**
- * Servlet implementation class LoginHomeController
+ * Servlet implementation class LoginRegisterController
  */
-@WebServlet("/LoginHomeController")
-public class LoginHomeController extends HttpServlet {
+@WebServlet("/LoginRegisterController")
+public class LoginRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String homemain = "homemain.jsp";
 	private static final String login = "login.jsp";
 	private static final String home = "home.jsp";
-	private static final String VIEW_MAIN_PAGE = "handloom.jsp";
 
-	RequestDispatcher requestDispatcher = null;
-
-	public LoginHomeController() {
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginRegisterController() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -41,7 +38,7 @@ public class LoginHomeController extends HttpServlet {
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if (action.equals("cancel")) {
-			response.sendRedirect("home.jsp");
+			response.sendRedirect(home);
 		}
 	}
 
@@ -52,36 +49,29 @@ public class LoginHomeController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String navigation = "";
-
 		String username = request.getParameter("uname");
 		String password = request.getParameter("psw");
+		String password1 = request.getParameter("psw1");
+		String navigation = "";
 
-		LoginModel beenLogin = new LoginModel();
-		beenLogin.setUsername(username);
-		beenLogin.setPassword(password);
+		LoginModel beenEMS = new LoginModel();
+		beenEMS.setUsername(username);
+		beenEMS.setPassword(password);
 
-		LoginService loginCheck = new LoginService();
-
-		String result = loginCheck.check(beenLogin);
-
-		if (result.equals("success")) {
-			int loginId = loginCheck.getUserId(beenLogin);
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-			String check = (String) session.getAttribute("username");
-			if (check != null) {
-				request.setAttribute("loginId", loginId);
-				navigation = VIEW_MAIN_PAGE;
+		LoginService loginServiceEMS = new LoginService();
+		if (password.equals(password1)) {
+			int status = loginServiceEMS.register(beenEMS);
+			if (status == 1) {
+				request.setAttribute("msg", "Enter Username/Password added Sucessfully");
+				navigation = login;
 			} else {
-				requestDispatcher = request.getRequestDispatcher(login);
+				navigation = home;
 			}
 		} else {
-			request.setAttribute("msg", "Enter Valid Username/Password");
-			navigation = login;
+			request.setAttribute("msg", "Enter Correct Password");
+			navigation = "register.jsp";
 		}
-		requestDispatcher = request.getRequestDispatcher(navigation);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher(navigation);
 		requestDispatcher.forward(request, response);
 
 	}

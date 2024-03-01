@@ -14,6 +14,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+         <style type="text/css">
+         /* Custom CSS for positioning the alert */
+        .add-cart-alert {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Ensure the alert appears on top of other elements */
+        }
+        </style>
+        <script src="js/jquery.min.js"></script>
+       <script type="text/javascript">
+       $(document).ready(function() {
+    	    // Add click event listener to the submit button
+    	    $(".addCartBtn").click(function(event) {
+    	        event.preventDefault(); // Prevent the default form submission
+
+    	        // Display a normal alert
+    	        alert('Item added to cart. To place an order, view cart');
+    	    });
+    	});
+</script>
     </head>
     <body>
         <!-- Navigation-->
@@ -23,6 +45,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="btn btn-primary px-4 me-sm-3" href="HandLoomController?action=viewCart&loginId=${loginId}">View Cart</a></li>
                             <li class="nav-item"><a class="btn btn-outline-danger px-4" href="home.jsp">LogOut</a></li>
                         </ul>
                     </div>
@@ -56,7 +79,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=1">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +109,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=2">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -108,7 +131,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=3">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +158,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=4">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -157,7 +180,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=5">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -176,7 +199,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=6">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -206,7 +229,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=7">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
@@ -233,7 +256,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center addCartBtn"><a class="btn btn-outline-dark mt-auto" href="HandLoomController?action=addCart&loginId=${loginId}&itemId=8">Add to cart</a></div>
                             </div>
                         </div>
                     </div>

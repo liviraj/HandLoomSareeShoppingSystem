@@ -33,6 +33,29 @@ public class LoginService {
 		return "failed";
 	}
 
+	public int getUserId(LoginModel beenLogin) {
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+
+		String username = beenLogin.getUsername();
+		String password = beenLogin.getPassword();
+		try {
+			con = DbConnection.getConnection();
+			st = (Statement) con.createStatement();
+			rs = st.executeQuery("select loginId from login where  username = '" + username + "' and  password = '"
+					+ password + "'");
+			if (rs.next()) {
+				return rs.getInt("loginId");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
 	public int register(LoginModel beenLogin) {
 
 		Connection con = null;
