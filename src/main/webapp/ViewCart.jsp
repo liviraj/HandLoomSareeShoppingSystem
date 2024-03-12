@@ -32,7 +32,7 @@
     	        event.preventDefault(); // Prevent the default form submission
 
     	        // Display a normal JavaScript alert
-    	        alert('Congratulations! Order placed successfully. To purchase more, visit the product page.');
+    	        alert('Congratulations! Selected item placed order successfully. To purchase more, visit the product page.');
     	    });
     	});
 </script>
@@ -62,26 +62,35 @@
         </header>
         <!-- Section-->
         <section class="py-5">
-            <table border="3" class="table table-striped">
-	<thead class="thead-dark">
-		<tr class="warning">
-		<th>Product Name</th>
-		<th>Price</th>
-		<th>Availability</th>
-		<th>Rating</th>
-		</tr>
-		</thead>
-			<c:forEach items="${details}" var="detail">
-			<tr>
-				<td><c:out value="${detail.productName}"></c:out></td>
-				<td><c:out value="${detail.price}"></c:out></td>
-				<td><c:out value="${detail.availability}"></c:out></td>
-				<td><c:out value="${detail.rating}"></c:out></td>
-				<td><a href="HandLoomController?action=order&loginId=<c:out value="${detail.loginId}"/>"><button class="placeOrderBtn btn btn-primary">Place Order</button></a>
-			</tr>
-			</c:forEach>
-			</table>
-        </section>
+    <form action="your_form_action" method="post"> <!-- Add your form action -->
+        <table border="3" class="table table-striped">
+            <thead class="thead-dark">
+                <tr class="warning">
+                    <th>Select</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <c:forEach items="${details}" var="detail">
+                <tr>
+                    <td>
+                        <input type="checkbox" name="selectedProducts" value="${detail.productId}">
+                    </td>
+                    <td><c:out value="${detail.productName}"></c:out></td>
+                    <td><c:out value="${detail.price}"></c:out></td>
+                    <td><c:out value="${detail.availability}"></c:out></td>
+                    <td><c:out value="${detail.rating}"></c:out></td>
+                    <%-- <td><a href="HandLoomController?action=order&loginId=<c:out value="${detail.loginId}"/>"><button class="placeOrderBtn btn btn-primary">Place Order</button></a></td> --%>
+                </tr>
+            </c:forEach>
+        </table>
+        <div class="text-center">
+        <button type="submit" class="placeOrderBtn btn btn-primary">Place Selected Orders</button>
+        </div>
+    </form>
+</section>
          <!-- Footer-->
          <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
