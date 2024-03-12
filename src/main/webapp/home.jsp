@@ -41,10 +41,6 @@
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2">Welcome, Elegance in Every Weave: Handloom Saree Collection</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Where timeless beauty meets artisanal craftsmanship. Our handloom saree collection is a celebration of tradition, artistry, and elegance. Each saree is meticulously crafted by skilled artisans, showcasing the rich heritage of handloom weaving techniques.</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">LogIn</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">Register</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="assets/handloom-1.jpg" alt="..." /></div>

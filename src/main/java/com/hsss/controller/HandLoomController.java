@@ -74,6 +74,7 @@ public class HandLoomController extends HttpServlet{
 			navigation = HAND_LOOM_PAGE;
 			
 		}
+
 		requestDispatcher = request.getRequestDispatcher(navigation);
 		requestDispatcher.forward(request, response);
 	}
@@ -84,6 +85,7 @@ public class HandLoomController extends HttpServlet{
 		HttpSession session = request.getSession();
 		String check = (String) session.getAttribute("username");
 		String action = request.getParameter("submit");
+
 		requestDispatcher.forward(request, response);
 	}
 }

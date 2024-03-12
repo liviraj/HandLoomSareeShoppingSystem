@@ -29,7 +29,7 @@
        $(document).ready(function() {
     	    // Add click event listener to the submit button
     	    $(".addCartBtn").click(function(event) {
-    	        event.preventDefault(); // Prevent the default form submission
+    	       // event.preventDefault(); // Prevent the default form submission
 
     	        // Display a normal alert
     	        alert('Item added to cart. To place an order, view cart');
